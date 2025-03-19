@@ -7,7 +7,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from playwright.sync_api import sync_playwright
 from playwright_stealth import stealth_sync
 from bs4 import BeautifulSoup
-
+#Test 
 def setup_browser():
     """Playwright ile Stealth modda tarayıcı başlatır."""
     p = sync_playwright().start()
