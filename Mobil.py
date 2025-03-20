@@ -5,6 +5,17 @@ import json
 from playwright.sync_api import sync_playwright
 from playwright_stealth import stealth_sync
 
+mobile_devices = ['Blackberry PlayBook', 'BlackBerry Z30', 'Galaxy Note 3', 'Galaxy Note II', 'Galaxy S III', 'Galaxy S5', 
+                  'Galaxy S8', 'Galaxy S9+', 'Galaxy Tab S4', 'iPad (gen 5)', 'iPad (gen 6)', 'iPad (gen 7)', 'iPad Mini', 
+                  'iPad Pro 11', 'iPhone 6', 'iPhone 6 Plus', 'iPhone 7', 'iPhone 7 Plus', 'iPhone 8', 'iPhone 8 Plus', 
+                  'iPhone SE', 'iPhone X', 'iPhone XR', 'iPhone 11', 'iPhone 11 Pro', 'iPhone 11 Pro Max', 'iPhone 12', 
+                  'iPhone 12 Pro', 'iPhone 12 Pro Max', 'iPhone 12 Mini', 'iPhone 13', 'iPhone 13 Pro', 'iPhone 13 Pro Max', 
+                  'iPhone 13 Mini', 'iPhone 14', 'iPhone 14 Plus', 'iPhone 14 Pro', 'iPhone 14 Pro Max', 'iPhone 15', 
+                  'iPhone 15 Plus', 'iPhone 15 Pro', 'iPhone 15 Pro Max', 'Kindle Fire HDX', 'LG Optimus L70', 
+                  'Microsoft Lumia 550', 'Microsoft Lumia 950', 'Nexus 10', 'Nexus 4', 'Nexus 5', 'Nexus 5X', 'Nexus 6', 
+                  'Nexus 6P', 'Nexus 7', 'Nokia Lumia 520', 'Nokia N9', 'Pixel 2', 'Pixel 2 XL', 'Pixel 3', 'Pixel 4', 
+                  'Pixel 4a (5G)', 'Pixel 5', 'Pixel 7', 'Moto G4']
+
 # 📂 Çerezleri saklayacağımız dosya
 storage_path = "cookies.json"
 
@@ -82,6 +93,10 @@ def search_google(page, keyword):
 
     return page
 
+def save_html(page):
+    html_source = page.content()
+    with open("test.html", "w", encoding="utf-8") as f:
+        f.write(html_source)
 
 def main():
     keyword = input("🔎 Aramak istediğiniz kelimeyi girin: ")
